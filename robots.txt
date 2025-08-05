@@ -1,0 +1,4 @@
+﻿User-agent: *
+Disallow:
+
+Sitemap: http://ronshapira177.github.io/Tzaneret-Platinium/sitemap.xml

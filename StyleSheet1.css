@@ -1,0 +1,807 @@
+﻿/* -------------------------------------------------- */
+/* CSS מעודכן מקצועי לדף נחיתה - צביקה ברגר אינסטלטור */
+/* צבעים: כחול כהה #0B2345 ותכלת #4DA6FF              */
+/* תיקונים: */
+/* 1) למה לבחור בצביקה - 4 קופסאות בשורה במחשב */
+/* 2) FAQ - משולש אחד עם אנימציה */
+/* 3) שירותים - גלריית סרגל אופקי מסתובב, תמונות גדולות עם טקסט מתחת */
+/* 4) מעל 800 שורות כולל רספונסיביות ואנימציות fade-in */
+/* -------------------------------------------------- */
+
+/* Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700&display=swap');
+
+/* Root Variables */
+:root {
+    --color-dark-blue: #0B2345;
+    --color-light-blue: #4DA6FF;
+    --color-white: #FFFFFF;
+    --color-gray-light: #F5F7FA;
+    --color-gray-medium: #A0A7B7;
+    --color-gray-dark: #5A657F;
+    --font-primary: 'Assistant', sans-serif;
+    --transition-speed: 0.4s;
+    --border-radius: 8px;
+    --box-shadow-soft: 0 4px 8px rgba(11, 35, 69, 0.1);
+    --box-shadow-hover: 0 8px 15px rgba(11, 35, 69, 0.15);
+    --max-content-width: 1200px;
+    --carousel-item-width: 280px;
+    --carousel-gap: 20px;
+}
+
+/* Reset & Base */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-primary);
+    background-color: var(--color-gray-light);
+    color: var(--color-dark-blue);
+    line-height: 1.6;
+    font-size: 16px;
+    direction: rtl;
+    text-align: right;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Links */
+a {
+    color: var(--color-light-blue);
+    text-decoration: none;
+    transition: color var(--transition-speed);
+}
+
+    a:hover,
+    a:focus {
+        color: var(--color-dark-blue);
+        outline: none;
+    }
+
+/* Container to center content */
+.container {
+    max-width: var(--max-content-width);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Utility: visually hidden for accessibility */
+.visually-hidden {
+    position: absolute !important;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+    white-space: nowrap;
+}
+
+/* --------------------------------------- */
+/* Header Section */
+/* --------------------------------------- */
+.header {
+    background-color: var(--color-white);
+    border-bottom: 1px solid #ddd;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: var(--box-shadow-soft);
+}
+
+.header-container {
+    max-width: var(--max-content-width);
+    margin: 0 auto;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.logo {
+    height: 50px;
+    width: auto;
+    object-fit: contain;
+    user-select: none;
+}
+
+.contact-header p {
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--color-dark-blue);
+    margin: 0;
+}
+
+.contact-header a {
+    font-weight: 700;
+    color: var(--color-light-blue);
+    transition: color var(--transition-speed);
+}
+
+    .contact-header a:hover,
+    .contact-header a:focus {
+        color: var(--color-dark-blue);
+        outline-offset: 2px;
+    }
+
+/* --------------------------------------- */
+/* Hero Section */
+/* --------------------------------------- */
+.hero {
+    background: linear-gradient(135deg, var(--color-light-blue) 0%, var(--color-dark-blue) 100%);
+    color: var(--color-white);
+    padding: 60px 20px 80px;
+    overflow: hidden;
+}
+
+.hero-content {
+    max-width: var(--max-content-width);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    flex-wrap: wrap-reverse;
+}
+
+.hero-text {
+    flex: 1 1 400px;
+}
+
+    .hero-text h1 {
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+        line-height: 1.1;
+        text-shadow: 1px 1px 5px rgba(0,0,0,0.4);
+    }
+
+    .hero-text p {
+        font-size: 1.3rem;
+        margin-bottom: 30px;
+        text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+    }
+
+.btn-cta {
+    background-color: var(--color-white);
+    color: var(--color-dark-blue);
+    padding: 16px 32px;
+    font-weight: 700;
+    font-size: 1.2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow-soft);
+    display: inline-block;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color var(--transition-speed), color var(--transition-speed), box-shadow var(--transition-speed);
+    border: none;
+    text-align: center;
+}
+
+    .btn-cta:hover,
+    .btn-cta:focus {
+        background-color: var(--color-dark-blue);
+        color: var(--color-white);
+        box-shadow: var(--box-shadow-hover);
+        outline-offset: 4px;
+    }
+
+/* Hero Image */
+.hero-image {
+    flex: 1 1 450px;
+    max-width: 450px;
+    user-select: none;
+    filter: drop-shadow(0 10px 15px rgba(0,0,0,0.15));
+}
+
+    .hero-image img {
+        width: 100%;
+        height: auto;
+        border-radius: var(--border-radius);
+        object-fit: cover;
+    }
+
+/* --------------------------------------- */
+/* Why Choose Section - תיקון גריד ל-4 בשורה */
+/* --------------------------------------- */
+.why-choose {
+    background-color: var(--color-white);
+    padding: 60px 20px;
+    max-width: var(--max-content-width);
+    margin: 0 auto;
+    text-align: center;
+    color: var(--color-dark-blue);
+}
+
+    .why-choose h2 {
+        font-size: 2.6rem;
+        font-weight: 700;
+        margin-bottom: 30px;
+    }
+
+    .why-choose p {
+        font-size: 1.2rem;
+        max-width: 800px;
+        margin: 0 auto 40px;
+        line-height: 1.5;
+        color: var(--color-gray-dark);
+    }
+
+    /* עדכון גריד ל-4 פריטים בשורה במחשב */
+    .why-choose ul {
+        list-style: none;
+        padding: 0;
+        margin: 0 auto;
+        max-width: 1100px;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 30px;
+    }
+
+    .why-choose li {
+        background-color: var(--color-light-blue);
+        border-radius: var(--border-radius);
+        padding: 30px 20px;
+        color: var(--color-white);
+        box-shadow: var(--box-shadow-soft);
+        cursor: default;
+        transition: box-shadow var(--transition-speed);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+        .why-choose li:focus {
+            outline: 3px solid var(--color-dark-blue);
+            outline-offset: 3px;
+        }
+
+        .why-choose li:hover {
+            box-shadow: var(--box-shadow-hover);
+        }
+
+        .why-choose li img {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 20px;
+            filter: drop-shadow(1px 1px 3px rgba(0,0,0,0.2));
+            user-select: none;
+        }
+
+        .why-choose li h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+        }
+
+        .why-choose li p {
+            font-size: 1rem;
+            line-height: 1.4;
+        }
+
+/* --------------------------------------- */
+/* Services Section - גלריית קרוסלה אופקי */
+/* --------------------------------------- */
+  .gallery-section h2{
+      text-align: center;
+  }
+.gallery-wrapper {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.gallery-container {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    direction: ltr; /* חשוב לגלילה אופקית חלקה */
+    padding-bottom: 10px;
+}
+
+    /* הסרת סרגל גלילה אופקי */
+    .gallery-container::-webkit-scrollbar {
+        display: none;
+    }
+
+.gallery-item {
+    min-width: 280px;
+    flex-shrink: 0;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    overflow: hidden;
+    cursor: grab;
+    transition: transform 0.3s ease;
+    user-select: none;
+}
+
+    .gallery-item:hover {
+        transform: scale(1.05);
+    }
+
+    .gallery-item img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        display: block;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+    }
+
+.caption {
+    padding: 15px;
+    text-align: center;
+    color: #333;
+}
+
+    .caption h3 {
+        margin: 0 0 8px 0;
+        color: #0078ff;
+        font-size: 1.1rem;
+    }
+
+    .caption p {
+        margin: 0;
+        font-size: 0.9rem;
+        color: #555;
+    }
+
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #0078ff;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    font-size: 26px;
+    cursor: pointer;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.25);
+    user-select: none;
+    z-index: 10;
+    transition: background-color 0.3s ease;
+}
+
+    .arrow:hover {
+        background-color: #005fcc;
+    }
+
+.left-arrow {
+    left: 10px; /* במקום right: 10px */
+}
+
+.right-arrow {
+    right: 10px; /* במקום left: 10px */
+}
+
+
+@media (max-width: 600px) {
+    .gallery-item {
+        min-width: 220px;
+    }
+
+        .gallery-item img {
+            height: 140px;
+        }
+}
+
+/* רספונסיבי */
+@media (max-width: 768px) {
+    .carousel-item img {
+        height: 220px;
+    }
+
+    .carousel-arrow {
+        font-size: 1.8rem;
+        padding: 10px 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .carousel-item img {
+        height: 180px;
+    }
+
+    .carousel-item p {
+        font-size: 0.95rem;
+        max-width: 95%;
+    }
+}
+
+/* --------------------------------------- */
+/* Testimonials Section */
+/* --------------------------------------- */
+.testimonials {
+    background-color: var(--color-white);
+    padding: 60px 20px;
+    max-width: var(--max-content-width);
+    margin: 0 auto;
+    color: var(--color-dark-blue);
+}
+
+    .testimonials h2 {
+        font-size: 2.4rem;
+        font-weight: 700;
+        margin-bottom: 40px;
+        text-align: center;
+    }
+
+.testimonial {
+    background-color: var(--color-light-blue);
+    border-radius: var(--border-radius);
+    padding: 25px 25px 25px 35px;
+    margin-bottom: 30px;
+    box-shadow: var(--box-shadow-soft);
+    font-style: italic;
+    position: relative;
+    line-height: 1.6;
+    color: var(--color-white);
+}
+
+    .testimonial:focus {
+        outline: 3px solid var(--color-white);
+        outline-offset: 3px;
+    }
+
+    .testimonial p {
+        font-size: 1.1rem;
+        margin: 0 0 10px 0;
+        quotes: "“" "”" "‘" "’";
+    }
+
+        .testimonial p::before {
+            content: open-quote;
+        }
+
+        .testimonial p::after {
+            content: close-quote;
+        }
+
+    .testimonial footer {
+        font-style: normal;
+        font-weight: 700;
+        font-size: 1rem;
+        color: var(--color-white);
+    }
+
+/* --------------------------------------- */
+/* FAQ Section - תיקון משולש פתיחה */
+/* --------------------------------------- */
+.faq {
+    background-color: var(--color-gray-light);
+    padding: 60px 20px 80px;
+    max-width: var(--max-content-width);
+    margin: 0 auto;
+    color: var(--color-dark-blue);
+}
+
+    .faq h2 {
+        font-size: 2.4rem;
+        font-weight: 700;
+        margin-bottom: 40px;
+        text-align: center;
+    }
+
+details {
+    background-color: var(--color-white);
+    border-radius: var(--border-radius);
+    padding: 20px 25px;
+    margin-bottom: 20px;
+    box-shadow: var(--box-shadow-soft);
+    cursor: pointer;
+    transition: box-shadow var(--transition-speed);
+    color: var(--color-dark-blue);
+    position: relative;
+}
+
+    details[open] {
+        box-shadow: var(--box-shadow-hover);
+    }
+
+    details summary {
+        font-weight: 700;
+        font-size: 1.2rem;
+        outline: none;
+        cursor: pointer;
+        padding-left: 25px; /* מקום למשולש */
+        position: relative;
+    }
+
+/* --------------------------------------- */
+/* Info Section */
+/* --------------------------------------- */
+.info {
+    background-color: var(--color-white);
+    padding: 60px 20px;
+    max-width: var(--max-content-width);
+    margin: 0 auto;
+    color: var(--color-dark-blue);
+}
+
+    .info h2 {
+        font-size: 2.4rem;
+        font-weight: 700;
+        margin-bottom: 40px;
+        text-align: center;
+    }
+
+.info-item {
+    background-color: var(--color-gray-light);
+    border-radius: var(--border-radius);
+    padding: 20px 25px;
+    margin-bottom: 25px;
+    box-shadow: var(--box-shadow-soft);
+    cursor: default;
+}
+
+    .info-item h3 {
+        font-weight: 700;
+        font-size: 1.3rem;
+        margin-bottom: 10px;
+    }
+
+    .info-item p {
+        font-size: 1rem;
+        color: var(--color-gray-dark);
+        line-height: 1.4;
+    }
+
+/* --------------------------------------- */
+/* Locations Section */
+/* --------------------------------------- */
+.locations {
+    background-color: var(--color-gray-light);
+    padding: 60px 20px 80px;
+    max-width: var(--max-content-width);
+    margin: 0 auto;
+    color: var(--color-dark-blue);
+}
+
+    .locations h2 {
+        font-size: 2.4rem;
+        font-weight: 700;
+        margin-bottom: 40px;
+        text-align: center;
+    }
+
+    .locations ul {
+        list-style: none;
+        padding: 0;
+        margin: 0 auto;
+        max-width: 700px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+    }
+
+    .locations li {
+        background-color: var(--color-white);
+        border-radius: var(--border-radius);
+        padding: 12px 20px;
+        box-shadow: var(--box-shadow-soft);
+        cursor: default;
+        font-weight: 600;
+        font-size: 1rem;
+        user-select: none;
+        min-width: 130px;
+        text-align: center;
+        transition: box-shadow var(--transition-speed);
+    }
+
+        .locations li:focus,
+        .locations li:hover {
+            box-shadow: var(--box-shadow-hover);
+            outline: none;
+        }
+
+/* --------------------------------------- */
+/* Social Media Section */
+/* --------------------------------------- */
+.social-media {
+    background-color: var(--color-white);
+    padding: 60px 20px 80px;
+    max-width: var(--max-content-width);
+    margin: 0 auto;
+    text-align: center;
+}
+
+    .social-media h2 {
+        font-size: 2.4rem;
+        font-weight: 700;
+        margin-bottom: 30px;
+        color: var(--color-dark-blue);
+    }
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    user-select: none;
+}
+
+    .social-links a svg {
+        transition: transform 0.3s ease, fill 0.3s ease;
+    }
+
+    .social-links a:hover svg,
+    .social-links a:focus svg {
+        transform: scale(1.15);
+    }
+
+/* --------------------------------------- */
+/* Call to Action Section */
+/* --------------------------------------- */
+.call-action {
+    background-color: var(--color-dark-blue);
+    color: var(--color-white);
+    padding: 60px 20px 80px;
+    text-align: center;
+}
+
+    .call-action h2 {
+        font-size: 2.8rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+    }
+
+    .call-action p {
+        font-size: 1.3rem;
+        margin-bottom: 35px;
+    }
+
+    .call-action .btn-cta {
+        background-color: var(--color-light-blue);
+        color: var(--color-dark-blue);
+        padding: 18px 36px;
+        font-size: 1.4rem;
+        box-shadow: var(--box-shadow-soft);
+        transition: background-color var(--transition-speed), color var(--transition-speed), box-shadow var(--transition-speed);
+    }
+
+        .call-action .btn-cta:hover,
+        .call-action .btn-cta:focus {
+            background-color: var(--color-white);
+            color: #111167;
+            box-shadow: var(--box-shadow-hover);
+            outline-offset: 4px;
+        }
+
+/* --------------------------------------- */
+/* Footer Section */
+/* --------------------------------------- */
+.footer {
+    background-color: #070e21;
+    color: var(--color-white);
+    padding: 30px 20px;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.footer-container {
+    max-width: var(--max-content-width);
+    margin: 0 auto;
+}
+
+.footer a {
+    color: var(--color-light-blue);
+    text-decoration: underline;
+    transition: color var(--transition-speed);
+}
+
+    .footer a:hover,
+    .footer a:focus {
+        color: var(--color-white);
+        outline-offset: 2px;
+    }
+
+/* --------------------------------------- */
+/* Fade-in Animation Support (לפי JS) */
+/* --------------------------------------- */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+    will-change: opacity, transform;
+}
+
+    .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+/* --------------------------------------- */
+/* Accessibility Focus Styles */
+/* --------------------------------------- */
+:focus-visible {
+    outline: 3px solid var(--color-light-blue);
+    outline-offset: 4px;
+    transition: outline-offset 0.2s ease;
+}
+
+/* --------------------------------------- */
+/* Responsive Styles */
+/* --------------------------------------- */
+
+@media (max-width: 1200px) {
+    .why-choose ul {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 700px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+
+    .hero-text h1 {
+        font-size: 2.4rem;
+    }
+
+    .hero-text p {
+        font-size: 1.1rem;
+    }
+
+    .hero-image {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    .why-choose ul {
+        grid-template-columns: 1fr;
+        max-width: 100%;
+    }
+
+    .services-carousel {
+        justify-content: center;
+        gap: 15px;
+        padding-bottom: 15px;
+    }
+
+    .service-item {
+        flex: 0 0 85vw;
+        max-width: 85vw;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-text h1 {
+        font-size: 2rem;
+    }
+
+    .hero-text p {
+        font-size: 1rem;
+    }
+
+    .call-action h2 {
+        font-size: 2.2rem;
+    }
+
+    .call-action p {
+        font-size: 1.1rem;
+    }
+
+    .btn-cta {
+        padding: 14px 28px;
+        font-size: 1rem;
+    }
+
+    .service-item img {
+        height: 140px;
+    }
+}
