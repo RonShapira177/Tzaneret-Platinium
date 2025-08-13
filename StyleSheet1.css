@@ -1,4 +1,4 @@
-﻿/* -------------------------------------------------- */
+/* -------------------------------------------------- */
 /* CSS מעודכן מקצועי לדף נחיתה - צביקה ברגר אינסטלטור */
 /* צבעים: כחול כהה #0B2345 ותכלת #4DA6FF              */
 /* תיקונים: */
@@ -804,4 +804,72 @@ details {
     .service-item img {
         height: 140px;
     }
+}
+/* עיצוב לחלק שירותי אינסטלציה ומשאבות מתקדמים */
+/* עיצוב ייחודי לחלק המשאבות */
+.advanced-services {
+    background: linear-gradient(135deg, #e6f0fa, #ffffff);
+    padding: 50px 20px;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    margin: 50px auto;
+    max-width: 1100px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+    /* פס דקורטיבי עליון */
+    .advanced-services::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 5px;
+        background-color: #2b6cb0;
+        border-radius: 3px;
+    }
+
+    .advanced-services h2 {
+        color: #2b6cb0;
+        font-size: 2.2rem;
+        margin-bottom: 25px;
+        font-weight: bold;
+    }
+
+    .advanced-services p {
+        color: #444;
+        font-size: 1.15rem;
+        line-height: 1.7;
+        max-width: 850px;
+        margin: 0 auto 20px auto;
+    }
+
+    /* אנימציית כניסה חלקה */
+    .advanced-services.fade-in {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+        .advanced-services.fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+/* רספונסיביות */
+@media (max-width: 768px) {
+    .advanced-services {
+        padding: 35px 15px;
+    }
+
+        .advanced-services h2 {
+            font-size: 1.6rem;
+        }
+
+        .advanced-services p {
+            font-size: 1rem;
+        }
 }
